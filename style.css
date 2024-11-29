@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+
+footer {
+    background-color: #24242f;
+    color: aliceblue;
+    text-align: center;
+    padding: 20px;
+  }
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: aliceblue;
+  }
+  header {
+    background-color: #24242f; 
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 20px; 
+  }
+  
+  .text-content {
+    text-align: right; 
+  }
+  
+  h1 {
+    font-size: 3.5rem; 
+    margin: 0;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: normal;
+    color: aliceblue;
+  }
+  
+  h3 {
+    font-size: 1.8rem; 
+    margin: 0;
+    font-weight: normal;
+    color: aliceblue;
+  }
+  
+  h1 .highlight {
+    color: #91d3db; 
+  }
+  
+  header img {
+    width: 100px; 
+    height: auto;
+    transform: rotate(-10deg); 
+  }
+
+  .centro {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+  }
+
+  .centro2 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+  }
+
+  /*Codigo recuperado de https://codepen.io/anna_blok/pen/eYYRbQY , lo adapte a mi necesidad pe*/
+
+#slider {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+ }
+ #slider input[type=radio] {
+    display: none;
+ }
+ #slider label {
+    cursor:pointer;
+    text-decoration: none;
+ }
+ #slider button {
+   display: none; /* Ocultar todos los botones por defecto */
+   position: absolute;
+   bottom: 20px; 
+   left: 50%;
+   transform: translateX(-50%); 
+   z-index: 2;
+
+   border-radius: 12px;
+   border: aliceblue;
+   padding: 20px;
+   opacity: 0.7; /* Opacidad inicial baja */
+   transition: opacity 0.3s ease-in-out; /* Transición suave */
+ }
+ 
+ #slider button:hover {
+   opacity: 1; /* Opacidad al pasar el mouse por encima */
+ }
+ 
+
+ #slide1:checked ~ #slides #button-1,
+ #slide2:checked ~ #slides #button-2,
+ #slide3:checked ~ #slides #button-3,
+ #slide4:checked ~ #slides #button-4 {
+   display: block; /* Mostrar el botón de la diapositiva activa */
+ }
+ #slides {
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+ }
+ #overflow {
+    width: 100%;
+    overflow: hidden;
+ }
+ #slide1:checked ~ #slides .inner {
+    margin-left: 0;
+ }
+ #slide2:checked ~ #slides .inner {
+    margin-left: -100%;
+ }
+ #slide3:checked ~ #slides .inner {
+    margin-left: -200%;
+ }
+ #slide4:checked ~ #slides .inner {
+    margin-left: -300%;
+ }
+ #slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 300px;
+ }
+ #slides .slide {
+    width: 25%;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+ }
+ #slides .slide_1 {
+    background: #00171F;
+    border-radius: 12px;
+ }
+ #slides .slide_2 {
+    background: #003459;
+    border-radius: 12px;
+ }
+ #slides .slide_3 {
+    background: #007EA7;
+    border-radius: 12px;
+ }
+ #slides .slide_4 {
+    background: #00A8E8;
+    border-radius: 12px;
+ }
+ #controls {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 2;
+    position: relative;
+ }
+ #controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+    z-index: 3;
+ }
+ #controls label:hover {
+    opacity: 1;
+ }
+ #slide1:checked ~ #controls label:nth-child(2),
+ #slide2:checked ~ #controls label:nth-child(3),
+ #slide3:checked ~ #controls label:nth-child(4),
+ #slide4:checked ~ #controls label:nth-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+    float:right;
+    margin: 0 -50px 0 0;
+    display: block;
+ }
+ #slide1:checked ~ #controls label:nth-last-child(2),
+ #slide2:checked ~ #controls label:nth-last-child(3),
+ #slide3:checked ~ #controls label:nth-last-child(4),
+ #slide4:checked ~ #controls label:nth-last-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+    float:left;
+    margin: 0 0 0 -50px;
+    display: block;
+ }
+ #bullets {
+    margin: 150px 0 0;
+    text-align: center;
+ }
+ #bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:100%;
+    background: #ccc;
+    margin: 0 10px;
+ }
+ #slide1:checked ~ #bullets label:nth-child(1),
+ #slide2:checked ~ #bullets label:nth-child(2),
+ #slide3:checked ~ #bullets label:nth-child(3),
+ #slide4:checked ~ #bullets label:nth-child(4) {
+    background: #444;
+ }
+ @media screen and (max-width: 900px) {
+    #slide1:checked ~ #controls label:nth-child(2),
+    #slide2:checked ~ #controls label:nth-child(3),
+    #slide3:checked ~ #controls label:nth-child(4),
+    #slide4:checked ~ #controls label:nth-child(1),
+    #slide1:checked ~ #controls label:nth-last-child(2),
+    #slide2:checked ~ #controls label:nth-last-child(3),
+    #slide3:checked ~ #controls label:nth-last-child(4),
+    #slide4:checked ~ #controls label:nth-last-child(1) {
+       margin: 0;
+    }
+    #slides {
+       max-width: calc(100% - 140px);
+       margin: 0 auto;
+    }
+ }
